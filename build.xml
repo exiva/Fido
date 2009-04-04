@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<project name="fido" default="run">
+    <property environment="env"/>
+    <property name="DANGER_HOME" value="${env.DANGER_HOME}"/>
+
+    <property name="APP_CLASS_NAME"  value="fido"/>
+    <property name="APP_PACKAGE_NAME" value="net.exiva.fido"/>
+    <property name="VERSION" value="3.3"/>
+    <property name="APP_VERSION_MAJOR" value="3"/>
+    <property name="APP_VERSION_MINOR" value="1"/>
+    <property name="APP_VERSION_BUILD" value="0"/>
+<property name="BUILD" value="149695" />
+    <import file="${DANGER_HOME}/tools/build_common.xml"/>
+</project>

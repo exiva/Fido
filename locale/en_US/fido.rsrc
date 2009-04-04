@@ -1,0 +1,125 @@
+# -*- coding: utf-8 -*-
+
+# Copyright 2001-2003, Danger, Inc.  All Rights Reserved.
+# This file is subject to the Danger, Inc. Sample Code License,
+# which is provided in the file SAMPLE_CODE_LICENSE.
+# Copies are also available from http://developer.danger.com/
+
+package "net.exiva.fido"
+
+interface "{source}net/exiva/fido/Resources.java"
+events "{source}net/exiva/fido/Commands.java"
+string ID_APP_FLAGS "LCM"
+
+#---------------------------------------------------------------------
+# helloworld Application Name
+#---------------------------------------------------------------------
+string ID_APP_NAME "Fido Que Manager"
+
+#---------------------------------------------------------------------
+# helloworld Class ID
+#---------------------------------------------------------------------
+string ID_APP_CLASS "net.exiva.fido.Fido"
+
+#---------------------------------------------------------------------
+# helloworld Large Icon  (32x32)
+#---------------------------------------------------------------------
+bitmap ID_LARGE_ICON "{base}LargeIcon.png"
+
+#---------------------------------------------------------------------
+# helloworld Small Icon (16x16)
+#---------------------------------------------------------------------
+bitmap ID_SMALL_ICON "{base}SmallIcon.png"
+bitmap ID_MAR_ICON "{base}SmallIcon.png"
+#---------------------------------------------------------------------
+# helloworld Splash Screen (148(h)x136(v))
+#---------------------------------------------------------------------
+# To work correctly under all the currently shipping versions of the
+# hiptop OS, three versions of the application splash screen must
+# be defined:
+#
+# The ID_SPLASH_SCREEN bitmap is used under the 1.1 OS where the
+# application name was part of the bitmap.  It is basically the same bitmap
+# as SplashScreenNoTitle, but has the application name drawn on top of it
+# in the font: HouseGothic HG 23Ext-Bold3.
+#
+# Under localized versions of the OS (1.1e - 2.1), the splashScreen resource
+# (defined below) is used instead.  It draws the application name
+# on top the SplashScreenNoTitle bitmap so that the name can be
+# localized.
+#
+# Under OS versions 2.3 and greater, the background for the splash screen
+# can change, so the splash screen bitmap is transparent except the parts
+# that overlay the background.
+#
+@ IF {os_version} = {1.1}
+bitmap ID_SPLASH_SCREEN 			"{base}SplashScreen.png"
+# just set to something
+int ID_SPLASH_SCREEN_NO_TITLE 	10
+@ ELSEIF {os_version} = {1.3, 2.0, 2.1}
+# Must still define the standard ID_SPLASH_SCREEN for these versions so
+# that the splash screen resource will be drawn.  The ID_SPLASH_SCREEN
+# image isn't actually drawn, but must be defined.
+bitmap ID_SPLASH_SCREEN 			"{base}SplashScreen.png"
+bitmap ID_SPLASH_SCREEN_NO_TITLE 	"{base}SplashScreenNoTitle.png"
+@ ELSE
+# This sample bitmap is completely transparent.  Your image will be an 
+# appropriate graphic for your application that will overlay the
+# background drawn by the OS.
+bitmap ID_SPLASH_SCREEN_NO_TITLE	"{base}SplashScreenTransparent.png"
+@ ENDIF
+
+bitmap ID_FETCH_ICON "{base}MiniIcon.png"
+#string ID_CHOOSER_CATEGORY "apps"
+
+#---------------------------------------------------------------------
+# helloworld Strings
+#---------------------------------------------------------------------
+string	ID_STRING_HELLO_WORLD	"Hello World..."
+# these are substituted by ant when it builds your app, and
+# can be specified in your build.xml file
+string	ID_VERSION	"V@APP_VERSION_MAJOR@.@APP_VERSION_MINOR@"
+
+#---------------------------------------------------------------------
+# helloworld I18N Locale String
+#---------------------------------------------------------------------
+string ID_LOCALE    "en_US"
+
+
+screen ID_FEEDSCREEN
+	title = "Fido Que"
+	className = "net.exiva.fido.QueViewer"
+		
+	activeListView	
+		alignWithParentLeft = 7
+		alignWithParentTop = 10
+		fillToRight = 7
+		fillToBottom = 7
+		#initialFocus
+		id = ID_ACTIVE_VIEW
+					# <activeListView-options>
+		itemHeight = 12
+					# [doesNotHaveScrollBar]
+endScreen
+
+
+#---------------------------------------------------------------------
+#			Splash Screen
+#---------------------------------------------------------------------
+# splashScreen resources are new in 1.3.  This resource will only be used when the
+# application is built for the 1.3 (or newer) OS.
+# In 1.1, the ID_SPLASH_SCREEN bitmap will be displayed and this resource will be ignored.
+splashScreen ID_SPLASH_SCREEN_RESOURCE
+	image
+		bitmap = ID_SPLASH_SCREEN_NO_TITLE
+		alignWithParentLeft = 0
+		alignWithParentTop = 0
+
+	staticTextBox
+		text = ID_APP_NAME
+		alignWithParentLeft = 2
+		alignWithParentTop = 0
+		fillToRight = 2
+		transparent
+		doesNotHaveBorder
+endSplashScreen
