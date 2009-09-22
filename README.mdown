@@ -1,0 +1,13 @@
+Fido - Hiptop File Downloader
+======
+
+Fido is a file downloader for the Danger Hiptop device. 
+
+
+Usage
+-----
+Hold down the trackball on a file link you want to download, or use the send to menu.
+
+Misc
+-----
+Fido is provided in source form only. I will not provide any bundles. I will not update it. If you want to update it, or add features, or bug fixes... please email me so I can have you either send me a patch, or push a patch to the git repository. Thanks.
