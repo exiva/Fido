@@ -66,7 +66,7 @@ public class Fido
 	 */
 	public void launch() {
 		fetchfilepath = new String();
-		listprovider();
+		// listprovider();
 		DEBUG.p("Fido: launch");
 		try
 		{
@@ -193,9 +193,9 @@ public class Fido
         return true;
     }
 
-public static String listprovider() {
-	DEBUG.p("Providers: "+Registrar.listAllProviders());
-}
+// public static String listprovider() {
+// 	DEBUG.p("Providers: "+Registrar.listAllProviders());
+// }
 
 	public void networkEvent(Object object)
     {
